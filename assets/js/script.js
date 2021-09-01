@@ -1,3 +1,11 @@
+var firstNameInput = document.querySelector("#first_name")
+var lastNameInput= document.querySelector("#last_name")
+var symptomsInput = document.querySelector("#symptoms")
+var addressInput = document.querySelector("#address")
+var responderInput = document.querySelector("#responder")
+var saveButton = document.querySelector(".save")
+
+
 $(document).ready(function () {
   $('.sidenav').sidenav();
   $('.fixed-action-btn').floatingActionButton();
