@@ -12,6 +12,8 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>EMSwift</title>
   </head>
@@ -31,57 +33,70 @@
     </nav>
 
     <div id="containter">
-    <div class="col s12 m7 container">
-      <h4 class="header center">New Patients</h4>
-      <div class="card horizontal">
-        <div class="card-image">
-          <img src="#">
-        </div>
-        <div class="card-stacked">
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information.</p>
+      <div class="col s12 m7 container">
+        <h4 class="header center">New Patients</h4>
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="#" />
           </div>
-          <div class="card-action">
-            <a href="#" class="right">This is a link</a>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p>
+                I am a very simple card. I am good at containing small bits of
+                information.
+              </p>
+            </div>
+            <div class="card-action">
+              <a href="#" class="right">This is a link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m7 container">
+        <h4 class="header center">Existing Patients</h4>
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="#" />
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p>
+                I am a very simple card. I am good at containing small bits of
+                information.
+              </p>
+            </div>
+            <div class="card-action">
+              <a href="#" class="right">This is a link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m7 container">
+        <h4 class="header center">Maps</h4>
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="#" />
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p>
+                I am a very simple card. I am good at containing small bits of
+                information.
+              </p>
+            </div>
+            <div class="card-action">
+              <a href="#" class="right">This is a link</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-  <div class="col s12 m7 container">
-    <h4 class="header center">Existing Patients</h4>
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="#">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
-        </div>
-        <div class="card-action">
-          <a href="#" class="right">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
+    <div id="map"></div>
 
-  <div class="col s12 m7 container">
-    <h4 class="header center">Maps</h4>
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="#">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
-        </div>
-        <div class="card-action">
-          <a href="#" class="right">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    <footer><br /></footer>
 
     <ul class="sidenav" id="mobile-demo">
       <li><a href="sass.html">Symptom List</a></li>
@@ -89,7 +104,7 @@
       <li><a href="collapsible.html">Map</a></li>
     </ul>
 
-    <div class="fixed-action-btn">
+    <div class="fixed-action-btn left">
       <a class="btn-floating btn-large red">
         <i class="large material-icons">add</i>
       </a>
@@ -112,6 +127,11 @@
       </ul>
     </div>
   </body>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDENQt_tjWthPcOI16smTPBeDwSXcm9aHo&callback=initMap&libraries=&v=weekly"
+    async
+  ></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="assets/js/script.js"></script>
