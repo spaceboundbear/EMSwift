@@ -11,25 +11,19 @@ $(document).ready(function () {
   $('.fixed-action-btn').floatingActionButton();
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('.fixed-action-btn');
   var instances = M.FloatingActionButton.init(elems, {
     direction: 'left',
-    hoverEnabled: false
+    hoverEnabled: false,
   });
 });
 
-const settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://priaid-symptom-checker-v1.p.rapidapi.com/body/locations/15?language=en-gb",
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "priaid-symptom-checker-v1.p.rapidapi.com",
-		"x-rapidapi-key": "SIGN-UP-FOR-KEY"
-	}
-};
+let map;
 
-$.ajax(settings).done(function (response) {
-	console.log(response);
-});
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 29.4241, lng: -98.4936 },
+    zoom: 8,
+  });
+}

@@ -1,5 +1,14 @@
-#save{
-    background-color: #5E35B1;
-    
-  }
-  
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+  height: 100%;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 60%;
+  margin-bottom: 10%;
+  padding: 0;
+}
+
