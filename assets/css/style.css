@@ -23,7 +23,7 @@ body {
   text-indent: 30px;
 }
 
-#save {
+.btn {
   background-color: rgb(255, 0, 0);
   border: 1px solid;
   box-shadow: 2px 5px black;

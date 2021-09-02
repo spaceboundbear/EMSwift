@@ -5,6 +5,25 @@ var addressInput = document.querySelector('#address');
 var responderInput = document.querySelector('#responder');
 var saveButton = document.querySelector('#save');
 
+
+
+saveButton.addEventListener("click", function(event) {
+	event.preventDefault();
+	console.log("i work")
+	// create user object from submission
+	var patient = {
+	  firstName: firstNameInput.value.trim(),
+	  lastName: lastNameInput.value.trim(),
+	  address: addressInput.value.trim(),
+	  responder: responderInput.value.trim()
+	};
+  
+	// set new submission to local storage 
+	localStorage.setItem("patient", JSON.stringify(patient));
+	
+  });
+  
+
 $(document).ready(function () {
   $('.sidenav').sidenav();
   $('.fixed-action-btn').floatingActionButton();
