@@ -3,18 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
     <link rel="stylesheet" href="assets/css/style.css" />
-    <title>EMSwift Map</title>
+    <title>EMSwift</title>
   </head>
   <body>
     <nav>
@@ -24,12 +27,24 @@
           ><i class="material-icons">menu</i></a
         >
         <ul class="right hide-on-med-and-down">
-          <li><a href="sass.html">Symptom List</a></li>
-          <li><a href="badges.html">Patients</a></li>
-          <li><a href="collapsible.html">Map</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a
+              href="/Project1-UTSA-MF-DB-BT/assets/html-links/newpatientform.html"
+              >New Patients</a
+            >
+          </li>
+          <li>
+            <a
+              href="/Project1-UTSA-MF-DB-BT/assets/html-links/existingPaitentForm.html"
+              >Existing Patients</a
+            >
+          </li>
+          <li><a href="map.html">Map</a></li>
         </ul>
       </div>
     </nav>
+
     <div class="search-bar">
       <input
         id="pac-input"
@@ -44,7 +59,7 @@
   <script
     async
     defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDENQt_tjWthPcOI16smTPBeDwSXcm9aHo&callback=initMap&libraries=&v=weekly&libraries=places"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDENQt_tjWthPcOI16smTPBeDwSXcm9aHo&callback=initMap&libraries=&v=weekly"
   ></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
