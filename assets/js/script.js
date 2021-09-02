@@ -18,13 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-function initMap() {
-  const map = new google.maps.Map(document.getElementById('map'), {
-    center: { lat: 29.4241, lng: -98.4936 },
-    zoom: 13,
-  });
-}
-
 // This example adds a search box to a map, using the Google Place Autocomplete
 // feature. People can enter geographical searches. The search box will return a
 // pick list containing a mix of places and predicted search terms.
