@@ -22,7 +22,7 @@
   <body>
     <nav>
       <div class="nav-wrapper">
-        <a href="index.html" class="brand-logo">EMSwift</a>
+        <a href="#!" class="brand-logo">EMSwift</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"
           ><i class="material-icons">menu</i></a
         >
@@ -45,6 +45,12 @@
       </div>
     </nav>
 
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="sass.html">Symptom List</a></li>
+      <li><a href="badges.html">Patients</a></li>
+      <li><a href="map.html">Map</a></li>
+    </ul>
+
     <div class="search-bar">
       <input
         id="pac-input"
@@ -59,7 +65,7 @@
   <script
     async
     defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDENQt_tjWthPcOI16smTPBeDwSXcm9aHo&callback=initMap&libraries=&v=weekly"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDENQt_tjWthPcOI16smTPBeDwSXcm9aHo&callback=initAutocomplete&libraries=places&v=weekly"
   ></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
