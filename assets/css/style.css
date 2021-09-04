@@ -91,3 +91,8 @@ body {
   border: 1px solid;
   box-shadow: 2px 5px black;
 }
+.safe {
+    max-width: 20%;
+    max-height: 20%;
+
+}
