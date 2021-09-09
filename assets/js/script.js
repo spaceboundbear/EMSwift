@@ -5,24 +5,20 @@ var addressInput = document.querySelector('#address');
 var responderInput = document.querySelector('#responder');
 var saveButton = document.querySelector('#save');
 
+saveButton.addEventListener('click', function (event) {
+  event.preventDefault();
+  console.log('I work');
+  // create user object from submission
+  var patient = {
+    firstName: firstNameInput.value.trim(),
+    lastName: lastNameInput.value.trim(),
+    address: addressInput.value.trim(),
+    responder: responderInput.value.trim(),
+  };
 
-
-saveButton.addEventListener("click", function(event) {
-	event.preventDefault();
-	console.log("I work")
-	// create user object from submission
-	var patient = {
-	  firstName: firstNameInput.value.trim(),
-	  lastName: lastNameInput.value.trim(),
-	  address: addressInput.value.trim(),
-	  responder: responderInput.value.trim()
-	};
-  
-	// set new submission to local storage 
-	localStorage.setItem("patient", JSON.stringify(patient));
-	
-  });
-  
+  // set new submission to local storage
+  localStorage.setItem('patient', JSON.stringify(patient));
+});
 
 $(document).ready(function () {
   $('.sidenav').sidenav();
@@ -37,6 +33,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// This example requires the Places library. Include the libraries=places
+// parameter when you first load the API. For example:
+// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 function initMap() {
   const map = new google.maps.Map(document.getElementById('map'), {
     center: { lat: 29.4241, lng: -98.4936 },
@@ -130,3 +129,5 @@ function initMap() {
     input.value = '';
   });
 }
+
+//------------------------------------------------------------------------------------------------------------
