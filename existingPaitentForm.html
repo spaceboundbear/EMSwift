@@ -17,7 +17,9 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
     <link rel="stylesheet" href="assets/css/style.css" />
-    <title>EMSwift</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
   </head>
   <body>
     <nav>
@@ -27,41 +29,22 @@
           ><i class="material-icons">menu</i></a
         >
         <ul class="right hide-on-med-and-down">
-          <li><a href="/index.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li>
-            <a href="/newpatientform.html">New Patients</a>
+            <a href="newpatientform.html">New Patients</a>
           </li>
           <li>
-            <a href="/existingPaitentForm.html">Existing Patients</a>
+            <a href="existingPaitentForm.html">Existing Patients</a>
           </li>
           <li><a href="map.html">Map</a></li>
         </ul>
       </div>
     </nav>
+    <a href="newpatientform.html" class="right">New Patients</a>
 
-    <ul class="sidenav" id="mobile-demo">
-      <li><a href="sass.html">Symptom List</a></li>
-      <li><a href="badges.html">Patients</a></li>
-      <li><a href="map.html">Map</a></li>
-    </ul>
+    <a href="existingPaitentForm.html" class="right">Existing Patients</a>
 
-    <div class="search-bar">
-      <input
-        id="pac-input"
-        class="controls"
-        type="text"
-        placeholder="Search Box"
-      />
-    </div>
-
-    <div id="map"></div>
+    <a href="index.html">Home</a>
   </body>
-  <script
-    async
-    defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDENQt_tjWthPcOI16smTPBeDwSXcm9aHo&callback=initAutocomplete&libraries=places&v=weekly"
-  ></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="assets/js/script.js"></script>
+  <script src="../js/script.js"></script>
 </html>

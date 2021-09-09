@@ -92,7 +92,10 @@ body {
   box-shadow: 2px 5px black;
 }
 .safe {
-    max-width: 20%;
-    max-height: 20%;
+  max-width: 20%;
+  max-height: 20%;
+}
 
+.brand-logo {
+  margin-left: 3%;
 }
