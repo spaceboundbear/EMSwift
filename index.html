@@ -4,126 +4,131 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      href="https://cdn.jsdelivr.net/npm/uikit@3.7.3/dist/css/uikit.min.css"
     />
-    
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>EMSwift</title>
   </head>
   <body>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">EMSwift</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"
-          ><i class="material-icons">menu</i></a
-        >
-        <ul class="right hide-on-med-and-down">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="newpatientform.html">New Patients</a></li>
-          <li><a href="existingPaitentForm.html">Existing Patients</a></li>
-          <li><a href="map.html">Map</a></li>
+    <nav class="uk-navbar-container uk-margin-bottom uk-dark" uk-navbar>
+      <a
+        href="index.html"
+        class="uk-margin-left uk-navbar-item uk-logo uk-navbar-left"
+        >EMSwift</a
+      >
+      <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+          <li class="uk-active uk-text-center">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="uk-parent uk-text-center">
+            <a href="newpatient.html">New Patients</a>
+          </li>
+          <li class="uk-text-center">
+            <a href="existingpatient.html">Existing Patients</a>
+          </li>
+          <li><a href="maps.html">Maps</a></li>
         </ul>
       </div>
     </nav>
+    <div class="uk-container">
+      <h1 class="uk-heading-line uk-text-center uk-text-bold uk-text-uppercase">
+        <span>New Patients</span>
+      </h1>
 
-      <div class="col s12 m7 container">
-        <h4 class="header center">New Patients</h4>
-        <div class="card horizontal">
-          <div class="card-image">
-            <img class="safe" src="./assets/images/safe.jpeg" alt="">
+      <div class="uk-card uk-card-primary uk-child-width-1-2" uk-grid>
+        <div class="uk-card-media-left uk-cover-container">
+          <span
+            class="uk-margin-left"
+            uk-icon="icon: plus-circle; ratio: 4"
+          ></span>
+          <canvas width="20" height=""></canvas>
+        </div>
+        <div>
+          <div
+            class="
+              uk-card-body
+              uk-text-right
+              uk-text-bold
+              uk-text-uppercase
+              uk-text-nowrap
+            "
+          >
+            <p>New Patient Form</p>
           </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <p>
-                Click link at bottom right of box to start new patient form.
-              </p>
-            </div>
-            <div class="card-action">
-              <a href="/newpatientform.html" class="right">New Form</a>
-            </div>
-          </div>
+          <a
+            class="uk-button uk-button-danger uk-align-right"
+            href="newpatient.html"
+            >New Patient</a
+          >
         </div>
       </div>
 
-      <div class="col s12 m7 container">
-        <h4 class="header center">Existing Patients</h4>
-        <div class="card horizontal">
-          <div class="card-image">
-            <img src="#" />
+      <h1 class="uk-heading-line uk-text-center uk-text-bold uk-text-uppercase">
+        <span>Past Patients</span>
+      </h1>
+
+      <div class="uk-card uk-card-primary uk-child-width-1-2" uk-grid>
+        <div class="uk-card-media-left uk-cover-container">
+          <span class="uk-margin-left" uk-icon="icon: check; ratio: 4"></span>
+          <canvas width="20" height=""></canvas>
+        </div>
+        <div>
+          <div
+            class="
+              uk-card-body
+              uk-text-right
+              uk-text-bold
+              uk-text-uppercase
+              uk-text-nowrap
+            "
+          >
+            View Past Patients
           </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <p>
-                Click link at bottom right to find existing patients
-              </p>
-            </div>
-            <div class="card-action">
-              <a href="/existingPaitentForm.html" class="right">Existing Patients </a>
-            </div>
-          </div>
+          <a
+            class="uk-button uk-button-danger uk-align-right"
+            href="existingpatient.html"
+            >Past Patient</a
+          >
         </div>
       </div>
 
-      <div class="col s12 m7 container">
-        <h4 class="header center">Maps</h4>
-        <div class="card horizontal">
-          <div class="card-image">
-            <img src="#" />
+      <h1 class="uk-heading-line uk-text-center uk-text-bold uk-text-uppercase">
+        <span>Maps</span>
+      </h1>
+
+      <div class="uk-card uk-card-primary uk-child-width-1-2" uk-grid>
+        <div class="uk-card-media-left uk-cover-container">
+          <span
+            class="uk-margin-left"
+            uk-icon="icon: location; ratio: 4"
+          ></span>
+          <canvas width="20" height=""></canvas>
+        </div>
+        <div>
+          <div
+            class="
+              uk-card-body
+              uk-text-right
+              uk-text-bold
+              uk-text-uppercase
+              uk-text-nowrap
+            "
+          >
+            View The Map
           </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <p> click here to view the map
-              </p>
-            </div>
-            <div class="card-action">
-              <a href="#" class="right">Maps</a>
-            </div>
-          </div>
+          <a class="uk-button uk-button-danger uk-align-right" href="maps.html"
+            >Maps</a
+          >
         </div>
       </div>
-    </div>
-
-    <ul class="sidenav" id="mobile-demo">
-      <li><a href="sass.html">Symptom List</a></li>
-      <li><a href="badges.html">Patients</a></li>
-      <li><a href="map.html">Map</a></li>
-    </ul>
-
-    <div class="fixed-action-btn left">
-      <a class="btn-floating btn-large red">
-        <i class="large material-icons">add</i>
-      </a>
-      <ul>
-        <li>
-          <a class="btn-floating red"
-            ><i class="material-icons">insert_chart</i></a
-          >
-        </li>
-        <li>
-          <a class="btn-floating blue"
-            ><i class="material-icons">assignment_ind</i></a
-          >
-        </li>
-        <li>
-          <a class="btn-floating green"
-            ><i class="material-icons">add_location</i></a
-          >
-        </li>
-      </ul>
     </div>
   </body>
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDENQt_tjWthPcOI16smTPBeDwSXcm9aHo&callback=initMap&libraries=&v=weekly"
-></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.3/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.3/dist/js/uikit-icons.min.js"></script>
   <script src="/assets/js/script.js"></script>
 </html>
