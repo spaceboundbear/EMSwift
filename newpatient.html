@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uikit@3.7.3/dist/css/uikit.min.css"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <title>EMSwift | New Patient</title>
+  </head>
+  <body>
+    <nav class="uk-navbar-container uk-margin-bottom" uk-navbar>
+      <a
+        href="index.html"
+        class="uk-margin-left uk-navbar-item uk-logo uk-navbar-left"
+        >EMSwift</a
+      >
+      <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+          <li class="uk-text-center"><a href="index.html">Home</a></li>
+          <li class="uk-active uk-text-center">
+            <a href="newpatient.html">New Patients</a>
+          </li>
+          <li class="uk-text-center">
+            <a href="existingpatient.html">Existing Patients</a>
+          </li>
+          <li class="uk-text-center"><a href="maps.html">Maps</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="uk-container">
+      <h1 class="uk-heading-line uk-text-center uk-text-uppercase uk-text-bold">
+        <span>New Patient Form</span>
+      </h1>
+      <form class="uk-grid-small" uk-grid>
+        <div class="uk-width-1-2@s">
+          <label class="uk-form-label" for="form-stacked-text"
+            >First Name</label
+          >
+          <input
+            class="uk-input"
+            id="first-name"
+            type="text"
+            placeholder="First Name"
+          />
+        </div>
+        <div class="uk-width-1-2@s">
+          <label class="uk-form-label" for="form-stacked-text">Last Name</label>
+          <input
+            class="uk-input"
+            id="last-name"
+            type="text"
+            placeholder="Last Name"
+          />
+        </div>
+        <div class="uk-width-1-4@s">
+          <label class="uk-form-label" for="form-stacked-text">Age</label>
+          <input class="uk-input" id="age" type="text" placeholder="Age" />
+        </div>
+
+        <div class="uk-width-1-4@s">
+          <label class="uk-form-label" for="form-stacked-text">Gender</label>
+          <select id="gender" class="uk-select">
+            <option>-Select Gender-</option>
+            <option>Female</option>
+            <option>Male</option>
+            <option>Not Specified</option>
+          </select>
+        </div>
+        <div class="uk-width-1-2@s">
+          <label class="uk-form-label" for="form-stacked-text">Address</label>
+          <input
+            class="uk-input"
+            id="address-input"
+            type="text"
+            placeholder="Address"
+          />
+        </div>
+        <div class="uk-width-1-2@s">
+          <label class="uk-form-label" for="form-stacked-text"
+            >Blood Pressure</label
+          >
+          <input
+            class="uk-input"
+            id="blood-pressure"
+            type="text"
+            placeholder="Blood Pressure"
+          />
+        </div>
+        <div class="uk-width-1-2@s">
+          <label id="#response-id" class="uk-form-label" for="form-stacked-text"
+            >Responder ID#</label
+          >
+          <input
+            class="uk-input"
+            id="response-id"
+            type="text"
+            placeholder="Responder ID#"
+          />
+        </div>
+        <div>
+          <label class="uk-form-label" for="form-stacked-text"
+            >Add Symptoms</label
+          >
+          <div class="uk-margin-bottom">
+            <div class="uk-inline">
+              <a
+                class="uk-form-icon uk-form-icon-flip"
+                href="#"
+                uk-icon="icon: plus-circle"
+              ></a>
+              <input class="uk-input" type="text" />
+            </div>
+          </div>
+        </div>
+        <div class="uk-width-1-1@s">
+          <label class="uk-form-label" for="form-stacked-text">Notes</label>
+          <textarea
+            id="notes"
+            class="uk-textarea"
+            rows="5"
+            placeholder="Notes"
+          ></textarea>
+        </div>
+      </form>
+      <button
+        id="form-submit"
+        class="
+          form-submit
+          uk-margin-top uk-button uk-button-danger uk-width-1-1
+        "
+      >
+        Submit
+      </button>
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.3/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.3/dist/js/uikit-icons.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+</html>
