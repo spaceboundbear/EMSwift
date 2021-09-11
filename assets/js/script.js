@@ -1,132 +1,151 @@
-var firstNameInput = document.querySelector('#first_name');
-var lastNameInput = document.querySelector('#last_name');
-var symptomsInput = document.querySelector('#symptoms');
-var addressInput = document.querySelector('#address');
-var responderInput = document.querySelector('#responder');
-var saveButton = document.querySelector('#save');
+//--------------------- Saving Patient Form ---------------//
 
+var firstName = $('#first-name');
+var lastName = $('#last-name');
+var birthYear = $('#age');
+var address = $('#address-input');
+var idNum = $('#response-id');
+var gender = $('#gender');
+var bp = $('#blood-pressure');
+var symptomsNumbers = [];
+var notes = $('#notes');
+var submitForm = $('.form-submit');
+var patientInfo = [];
+var patient = '';
 
+var patient = {
+  firstName: firstName.val(),
+  lastName: lastName.val(),
+  address: address.val(),
+  responder: idNum.val(),
+  //birthDay: birthDay.val(),
+  //birthMonth: birthMonth.val(),
+  birthYear: birthYear.val(),
+  notes: notes.val(),
+  bloodPressure: bp.val(),
+  gender: gender.val(),
+};
 
-saveButton.addEventListener("click", function(event) {
-	event.preventDefault();
-	console.log("I work")
-	// create user object from submission
-	var patient = {
-	  firstName: firstNameInput.value.trim(),
-	  lastName: lastNameInput.value.trim(),
-	  address: addressInput.value.trim(),
-	  responder: responderInput.value.trim()
-	};
-  
-	// set new submission to local storage 
-	localStorage.setItem("patient", JSON.stringify(patient));
-	
-  });
-  
+submitForm.on('click', function submitInfo(event) {
+  event.preventDefault();
 
-$(document).ready(function () {
-  $('.sidenav').sidenav();
-  $('.fixed-action-btn').floatingActionButton();
+  patientInfo.push(patient);
+  localStorage.setItem('patientinfo', JSON.stringify(patientInfo));
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  var elems = document.querySelectorAll('.fixed-action-btn');
-  var instances = M.FloatingActionButton.init(elems, {
-    direction: 'left',
-    hoverEnabled: false,
-  });
-});
-
-function initMap() {
-  const map = new google.maps.Map(document.getElementById('map'), {
-    center: { lat: 29.4241, lng: -98.4936 },
-    zoom: 13,
-  });
-  const card = document.getElementById('pac-card');
-  const input = document.getElementById('pac-input');
-  const biasInputElement = document.getElementById('use-location-bias');
-  const strictBoundsInputElement = document.getElementById('use-strict-bounds');
-  const options = {
-    fields: ['formatted_address', 'geometry', 'name'],
-    strictBounds: false,
-    types: ['establishment'],
-  };
-  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
-  const autocomplete = new google.maps.places.Autocomplete(input, options);
-  // Bind the map's bounds (viewport) property to the autocomplete object,
-  // so that the autocomplete requests use the current map bounds for the
-  // bounds option in the request.
-  autocomplete.bindTo('bounds', map);
-  const infowindow = new google.maps.InfoWindow();
-  const infowindowContent = document.getElementById('infowindow-content');
-  infowindow.setContent(infowindowContent);
-  const marker = new google.maps.Marker({
-    map,
-    anchorPoint: new google.maps.Point(0, -29),
-  });
-  autocomplete.addListener('place_changed', () => {
-    infowindow.close();
-    marker.setVisible(false);
-    const place = autocomplete.getPlace();
-
-    if (!place.geometry || !place.geometry.location) {
-      // User entered the name of a Place that was not suggested and
-      // pressed the Enter key, or the Place Details request failed.
-      window.alert("No details available for input: '" + place.name + "'");
-      return;
-    }
-
-    // If the place has a geometry, then present it on a map.
-    if (place.geometry.viewport) {
-      map.fitBounds(place.geometry.viewport);
-    } else {
-      map.setCenter(place.geometry.location);
-      map.setZoom(17);
-    }
-    marker.setPosition(place.geometry.location);
-    marker.setVisible(true);
-    infowindowContent.children['place-name'].textContent = place.name;
-    infowindowContent.children['place-address'].textContent =
-      place.formatted_address;
-    infowindow.open(map, marker);
-  });
-
-  // Sets a listener on a radio button to change the filter type on Places
-  // Autocomplete.
-  function setupClickListener(id, types) {
-    const radioButton = document.getElementById(id);
-    radioButton.addEventListener('click', () => {
-      autocomplete.setTypes(types);
-      input.value = '';
-    });
-  }
-  setupClickListener('changetype-all', []);
-  setupClickListener('changetype-address', ['address']);
-  setupClickListener('changetype-establishment', ['establishment']);
-  setupClickListener('changetype-geocode', ['geocode']);
-  biasInputElement.addEventListener('change', () => {
-    if (biasInputElement.checked) {
-      autocomplete.bindTo('bounds', map);
-    } else {
-      // User wants to turn off location bias, so three things need to happen:
-      // 1. Unbind from map
-      // 2. Reset the bounds to whole world
-      // 3. Uncheck the strict bounds checkbox UI (which also disables strict bounds)
-      autocomplete.unbind('bounds');
-      autocomplete.setBounds({ east: 180, west: -180, north: 90, south: -90 });
-      strictBoundsInputElement.checked = biasInputElement.checked;
-    }
-    input.value = '';
-  });
-  strictBoundsInputElement.addEventListener('change', () => {
-    autocomplete.setOptions({
-      strictBounds: strictBoundsInputElement.checked,
-    });
-
-    if (strictBoundsInputElement.checked) {
-      biasInputElement.checked = strictBoundsInputElement.checked;
-      autocomplete.bindTo('bounds', map);
-    }
-    input.value = '';
-  });
+if (window.location.href.match('existingpatient.html') != null) {
+  console.log('works');
+  loadPatientList();
 }
+
+function loadPatientList() {
+  patientInfo = JSON.parse(localStorage.getItem('patientinfo'));
+  console.log(patientInfo);
+
+  for (var i = 0; i < patientInfo.length; i++) {
+    addToList(patientInfo[i]);
+  }
+}
+
+/*   if (patientInfo == null) {
+    patientInfo = [];
+    patientInfo.push(patient);
+    localStorage.setItem('patientinfo', JSON.stringify(patientInfo));
+    addToList(patient);
+  }
+
+/*  for (var i = 0; i < patientInfo.length; i++) {
+    addToList(patientInfo[i]);
+
+    function addToList(c) {
+      var start = $('<div> test test');
+      $(start).attr(
+        'class',
+        'uk-card uk-card-default uk-card-body uk-width-1-1@m start'
+      );
+      $('.add-test').after(start);
+
+      var a = $('<h3>' + c.firstName + ' ' + c.lastName + '</h3>');
+      $(a).attr('class', 'uk-card-title nameEl test-content');
+      $('.start').append(a);
+
+      var b = $('</p> TEST TEST SET SE TSE ET ETS TE S TES</p>');
+      $(b).attr('class', 'p');
+      $('.nameEl').after(b);
+
+      var c = $('</div>');
+      $('.p').after(c);
+    }
+  }
+
+/*    $(".nameEl").text(
+      patientInfo[i].firstName.toUpperCase() +
+        " " +
+        patientInfo[i].lastName.toUpperCase()
+    );
+    $(".address-text").text("Address: " + patientInfo[i].address);
+    $(".age-text").text("Age: " + patientInfo[i].birthYear);
+    $(".bp-text").text("Blood Pressure: " + patientInfo[i].bloodPressure);
+    $(".notes-text").text("Notes: " + patientInfo[i].notes);
+    $(".id-text").text("Responder ID#: " + patientInfo[i].responder);
+    $(".gender-val").text("Gender: " + patientInfo[i].gender);
+  }
+
+/*<ul uk-accordion class="accordion-start">
+        <li class="uk-open open-test">
+          <a class="uk-accordion-title nameEl test-content" href="#"></a>
+          <div class="uk-accordion-content test">
+            <div
+              class="
+                name-test
+                uk-card uk-card-default uk-card-body uk-width-1-1@s
+              "
+            >
+              <h5 class="uk-card-title">Info:</h5>
+              <p class="address-text"></p>
+              <p class="age-text"></p>
+              <p class="bp-text"></p>
+              <p class="notes-text"></p>
+              <p class="id-text"></p>
+              <p class="gender-val"></p>
+              <a class="uk-button uk-button-danger uk-align-top"
+                >Delete Patient</a
+              >
+            </div>
+          </div>
+        </li>
+      </ul>
+
+//var symptoms =
+//'https://sandbox-healthservice.priaid.ch/symptoms?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im1mLm1pY2hhZWxmaXNjaGVyQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiOTYyOCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjIwMCIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiI5OTk5OTk5OTkiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJQcmVtaXVtIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9sYW5ndWFnZSI6ImVuLWdiIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9leHBpcmF0aW9uIjoiMjA5OS0xMi0zMSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcHN0YXJ0IjoiMjAyMS0wOC0zMSIsImlzcyI6Imh0dHBzOi8vc2FuZGJveC1hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNjMxMjM0ODI3LCJuYmYiOjE2MzEyMjc2Mjd9.qTYJ1YWtwdhly_qdprtPPkkRQ3Bx7nY_NkeI2UMVa9I&format=json&language=en-gb';
+
+/* var diagnosis =
+  'https://sandbox-healthservice.priaid.ch/diagnosis?symptoms=' +
+  //symptomsNumbers +
+  '&gender=Male' +
+  //gender +
+  '&year_of_birth=1983' +
+  // birthYear +
+  '&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im1mLm1pY2hhZWxmaXNjaGVyQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiOTYyOCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjIwMCIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiI5OTk5OTk5OTkiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJQcmVtaXVtIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9sYW5ndWFnZSI6ImVuLWdiIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9leHBpcmF0aW9uIjoiMjA5OS0xMi0zMSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcHN0YXJ0IjoiMjAyMS0wOC0zMSIsImlzcyI6Imh0dHBzOi8vc2FuZGJveC1hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNjMxMjM1MTIzLCJuYmYiOjE2MzEyMjc5MjN9.Zkr14yldTVoyKfLdt8cWe7qzXueW2-mFgOI3eF3Cs3Q&format=json&language=en-gb';
+
+  */
+
+//console.log(symptoms);
+//console.log(diagnosis);
+
+/* fetch(symptoms)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+  });
+
+/*fetch(diagnosis)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+  });
+  */
