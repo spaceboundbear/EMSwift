@@ -1,91 +1,82 @@
 //--------------------- Saving Patient Form ---------------//
 
-var firstName = $("#first-name");
-var lastName = $("#last-name");
-var birthYear = $("#age");
-var address = $("#address-input");
-var idNum = $("#response-id");
-var gender = $("#gender");
-var bp = $("#blood-pressure");
+var firstName = $('#first-name');
+var lastName = $('#last-name');
+var birthYear = $('#age');
+var address = $('#address-input');
+var idNum = $('#response-id');
+var gender = $('#gender');
+var bp = $('#blood-pressure');
 var symptomsNumbers = [];
-var notes = $("#notes");
-var submitForm = $(".form-submit");
+var notes = $('#notes');
+var submitForm = $('.form-submit');
 var patientInfo = [];
-var patient = "";
+var patient = '';
 
+var patient = {
+  firstName: firstName.val(),
+  lastName: lastName.val(),
+  address: address.val(),
+  responder: idNum.val(),
+  //birthDay: birthDay.val(),
+  //birthMonth: birthMonth.val(),
+  birthYear: birthYear.val(),
+  notes: notes.val(),
+  bloodPressure: bp.val(),
+  gender: gender.val(),
+};
 
-
-submitForm.on("click", function submitInfo(event) {
+submitForm.on('click', function submitInfo(event) {
   event.preventDefault();
 
-  var patient = {
-    firstName: firstName.val(),
-    lastName: lastName.val().trim(),
-    address: address.val().trim(),
-    responder: idNum.val().trim(),
-    //birthDay: birthDay.val().trim(),
-    //birthMonth: birthMonth.val().trim(),
-    birthYear: birthYear.val().trim(),
-    notes: notes.val().trim(),
-    bloodPressure: bp.val().trim(),
-    gender: gender.val(),
-  };
-
   patientInfo.push(patient);
-  localStorage.setItem("patientinfo", JSON.stringify(patientInfo));
+  localStorage.setItem('patientinfo', JSON.stringify(patientInfo));
 });
 
-
-
-if (window.location.href.match("existingpatient.html") != null) {
-  var patientInfo = JSON.parse(localStorage.getItem("patientinfo"));
-  console.log("works");
+if (window.location.href.match('existingpatient.html') != null) {
+  console.log('works');
   loadPatientList();
 }
 
 function loadPatientList() {
-  var patientInfo = JSON.parse(localStorage.getItem("patientinfo"));
-  console.log("patient works");
+  patientInfo = JSON.parse(localStorage.getItem('patientinfo'));
+  console.log(patientInfo);
 
   for (var i = 0; i < patientInfo.length; i++) {
     addToList(patientInfo[i]);
-
-  function addToList(c) {
-
-    var start = $("<div> test test");
-    $(start).attr("class", "uk-card uk-card-default uk-card-body uk-width-1-1@m start");
-    $(".add-test").after(start);
-
-    var a = $('<h3>' + c.firstName + ' ' + c.lastName + '</h3>');
-    $(a).attr('class', "uk-card-title nameEl test-content");
-    $('.start').append(a)
-    
-    var b = $('</p> TEST TEST SET SE TSE ET ETS TE S TES</p>');
-    $(b).attr('class', "p");
-    $('.nameEl').after(b)
-
-    var c = $('</div>');
-    $('.p').after(c)
-
-  }
-}}
-
-citylist = JSON.parse(localStorage.getItem('patientinfo'));
-console.log(citylist);
-if (citylist == null) {
-  citylist = [];
-  citylist.push(patient);
-  localStorage.setItem('patientinfo', JSON.stringify(citylist));
-  addToList(city);
-} else {
-  if (find(city) > 0) {
-    citylist.push(city.toUpperCase());
-    localStorage.setItem('city', JSON.stringify(citylist));
-    addCityList(city);
   }
 }
 
+/*   if (patientInfo == null) {
+    patientInfo = [];
+    patientInfo.push(patient);
+    localStorage.setItem('patientinfo', JSON.stringify(patientInfo));
+    addToList(patient);
+  }
 
+/*  for (var i = 0; i < patientInfo.length; i++) {
+    addToList(patientInfo[i]);
+
+    function addToList(c) {
+      var start = $('<div> test test');
+      $(start).attr(
+        'class',
+        'uk-card uk-card-default uk-card-body uk-width-1-1@m start'
+      );
+      $('.add-test').after(start);
+
+      var a = $('<h3>' + c.firstName + ' ' + c.lastName + '</h3>');
+      $(a).attr('class', 'uk-card-title nameEl test-content');
+      $('.start').append(a);
+
+      var b = $('</p> TEST TEST SET SE TSE ET ETS TE S TES</p>');
+      $(b).attr('class', 'p');
+      $('.nameEl').after(b);
+
+      var c = $('</div>');
+      $('.p').after(c);
+    }
+  }
 
 /*    $(".nameEl").text(
       patientInfo[i].firstName.toUpperCase() +
