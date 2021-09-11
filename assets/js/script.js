@@ -10,24 +10,28 @@ var bp = $('#blood-pressure');
 var symptomsNumbers = [];
 var notes = $('#notes');
 var submitForm = $('.form-submit');
-var patientInfo = [];
+var patientInfo = JSON.parse(localStorage.getItem('patientinfo')) || [];
 var patient = '';
 
-var patient = {
-  firstName: firstName.val(),
-  lastName: lastName.val(),
-  address: address.val(),
-  responder: idNum.val(),
-  //birthDay: birthDay.val(),
-  //birthMonth: birthMonth.val(),
-  birthYear: birthYear.val(),
-  notes: notes.val(),
-  bloodPressure: bp.val(),
-  gender: gender.val(),
-};
+submitForm.on('click', function submitInfo(patient) {
+  patientInfo = JSON.parse(localStorage.getItem('patientinfo'));
 
-submitForm.on('click', function submitInfo(event) {
-  event.preventDefault();
+  if (!patientInfo) {
+    patientInfo = [];
+  }
+
+  var patient = {
+    firstName: firstName.val(),
+    lastName: lastName.val(),
+    address: address.val(),
+    responder: idNum.val(),
+    //birthDay: birthDay.val(),
+    //birthMonth: birthMonth.val(),
+    birthYear: birthYear.val(),
+    notes: notes.val(),
+    bloodPressure: bp.val(),
+    gender: gender.val(),
+  };
 
   patientInfo.push(patient);
   localStorage.setItem('patientinfo', JSON.stringify(patientInfo));
@@ -47,6 +51,33 @@ function loadPatientList() {
   }
 }
 
+function addToList(c) {
+  var start = $('<div>');
+  start.attr(
+    'class',
+    'uk-card uk-card-default uk-card-body uk-width-1-1@m start'
+  );
+
+  var a = $('<h3>' + c.firstName + ' ' + c.lastName + '</h3>');
+  $(a).attr('class', 'uk-card-title nameEl test-content');
+  start.append(a);
+
+  var b = $(
+    '<ul><li> ADDRESS: ' +
+      c.address +
+      '</li><li> GENDER: ' +
+      c.gender +
+      '</li> <li> BLOOD PRESSURE: ' +
+      c.bloodPressure +
+      '</li> <li> RESPONDER ID #: ' +
+      c.responder +
+      '</li></ul>'
+  );
+  $(b).attr('class', 'p');
+  start.append(b);
+  $('.add-test').append(start);
+}
+
 /*   if (patientInfo == null) {
     patientInfo = [];
     patientInfo.push(patient);
@@ -54,7 +85,7 @@ function loadPatientList() {
     addToList(patient);
   }
 
-/*  for (var i = 0; i < patientInfo.length; i++) {
+  for (var i = 0; i < patientInfo.length; i++) {
     addToList(patientInfo[i]);
 
     function addToList(c) {
