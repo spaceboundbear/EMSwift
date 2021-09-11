@@ -71,8 +71,10 @@ function addToList(c) {
       c.bloodPressure +
       '</li> <li> RESPONDER ID #: ' +
       c.responder +
-      '</li></ul>'
+      '</li></ul>' +
+      '<button class="uk-button-danger"> DELETE PATIENT </button>'
   );
+
   $(b).attr('class', 'p');
   start.append(b);
   $('.add-test').append(start);
