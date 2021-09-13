@@ -1,0 +1,254 @@
+[
+  {
+    id: 10,
+    name: "Abdominal pain"
+  },
+  {
+    id: 238,
+    name: "Anxiety"
+  },
+  {
+    id: 104,
+    name: "Back pain"
+  },
+  {
+    id: 75,
+    name: "Burning eyes"
+  },
+  {
+    id: 46,
+    name: "Burning in the throat"
+  },
+  {
+    id: 170,
+    name: "Cheek swelling"
+  },
+  {
+    id: 17,
+    name: "Chest pain"
+  },
+  {
+    id: 31,
+    name: "Chest tightness"
+  },
+  {
+    id: 175,
+    name: "Chills"
+  },
+  {
+    id: 139,
+    name: "Cold sweats"
+  },
+  {
+    id: 15,
+    name: "Cough"
+  },
+  {
+    id: 207,
+    name: "Dizziness"
+  },
+  {
+    id: 244,
+    name: "Drooping eyelid"
+  },
+  {
+    id: 273,
+    name: "Dry eyes"
+  },
+  {
+    id: 87,
+    name: "Earache"
+  },
+  {
+    id: 92,
+    name: "Early satiety"
+  },
+  {
+    id: 287,
+    name: "Eye pain"
+  },
+  {
+    id: 33,
+    name: "Eye redness"
+  },
+  {
+    id: 153,
+    name: "Fast, deepened breathing"
+  },
+  {
+    id: 76,
+    name: "Feeling of foreign body in the eye"
+  },
+  {
+    id: 11,
+    name: "Fever"
+  },
+  {
+    id: 57,
+    name: "Going black before the eyes"
+  },
+  {
+    id: 9,
+    name: "Headache"
+  },
+  {
+    id: 45,
+    name: "Heartburn"
+  },
+  {
+    id: 122,
+    name: "Hiccups"
+  },
+  {
+    id: 149,
+    name: "Hot flushes"
+  },
+  {
+    id: 40,
+    name: "Increased thirst"
+  },
+  {
+    id: 73,
+    name: "Itching eyes"
+  },
+  {
+    id: 96,
+    name: "Itching in the nose"
+  },
+  {
+    id: 35,
+    name: "Lip swelling"
+  },
+  {
+    id: 235,
+    name: "Memory gap"
+  },
+  {
+    id: 112,
+    name: "Menstruation disorder"
+  },
+  {
+    id: 123,
+    name: "Missed period"
+  },
+  {
+    id: 44,
+    name: "Nausea"
+  },
+  {
+    id: 136,
+    name: "Neck pain"
+  },
+  {
+    id: 114,
+    name: "Nervousness"
+  },
+  {
+    id: 133,
+    name: "Night cough"
+  },
+  {
+    id: 12,
+    name: "Pain in the limbs"
+  },
+  {
+    id: 203,
+    name: "Pain on swallowing"
+  },
+  {
+    id: 37,
+    name: "Palpitations"
+  },
+  {
+    id: 140,
+    name: "Paralysis"
+  },
+  {
+    id: 54,
+    name: "Reduced appetite"
+  },
+  {
+    id: 14,
+    name: "Runny nose"
+  },
+  {
+    id: 29,
+    name: "Shortness of breath"
+  },
+  {
+    id: 124,
+    name: "Skin rash"
+  },
+  {
+    id: 52,
+    name: "Sleeplessness"
+  },
+  {
+    id: 95,
+    name: "Sneezing"
+  },
+  {
+    id: 13,
+    name: "Sore throat"
+  },
+  {
+    id: 64,
+    name: "Sputum"
+  },
+  {
+    id: 179,
+    name: "Stomach burning"
+  },
+  {
+    id: 28,
+    name: "Stuffy nose"
+  },
+  {
+    id: 138,
+    name: "Sweating"
+  },
+  {
+    id: 248,
+    name: "Swollen glands in the armpits"
+  },
+  {
+    id: 169,
+    name: "Swollen glands on the neck"
+  },
+  {
+    id: 211,
+    name: "Tears"
+  },
+  {
+    id: 16,
+    name: "Tiredness"
+  },
+  {
+    id: 115,
+    name: "Tremor at rest"
+  },
+  {
+    id: 144,
+    name: "Unconsciousness, short"
+  },
+  {
+    id: 101,
+    name: "Vomiting"
+  },
+  {
+    id: 181,
+    name: "Vomiting blood"
+  },
+  {
+    id: 56,
+    name: "weakness"
+  },
+  {
+    id: 23,
+    name: "Weight gain"
+  },
+  {
+    id: 30,
+    name: "Wheezing"
+  }
+]

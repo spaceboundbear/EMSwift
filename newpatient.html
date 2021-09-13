@@ -35,7 +35,7 @@
       <h1 class="uk-heading-line uk-text-center uk-text-uppercase uk-text-bold">
         <span>New Patient Form</span>
       </h1>
-      <form class="uk-grid-small form-list-item" uk-grid>
+      <form autocomplete="off" class="uk-grid-small form-list-item" uk-grid>
         <div class="uk-width-1-2@s">
           <label class="uk-form-label" for="form-stacked-text"
             >First Name</label
@@ -106,18 +106,24 @@
             >Add Symptoms</label
           >
           <div class="uk-margin-bottom">
-            <div class="uk-inline">
+            <div class="uk-inline" style="width: 300px">
               <a
                 class="uk-form-icon uk-form-icon-flip"
                 href="#"
                 uk-icon="icon: plus-circle"
               ></a>
-              <input class="uk-input" type="text" />
+              <input
+                class="uk-input"
+                id="autocomplete"
+                name="name"
+                type="text"
+              />
             </div>
+            <ul class="result" id="result"></ul>
           </div>
         </div>
         <div class="uk-width-1-1@s">
-          <label class="uk-form-label" for="form-stacked-text">Notes</label>
+          <label class="uk-form-label" for="form-stacked-text">test</label>
           <textarea
             id="notes"
             class="uk-textarea"
@@ -140,5 +146,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.3/dist/js/uikit.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.3/dist/js/uikit-icons.min.js"></script>
+  <link
+    rel="stylesheet"
+    href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"
+  />
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="/assets/js/script.js"></script>
 </html>
