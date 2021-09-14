@@ -9,12 +9,21 @@ var gender = $('#gender');
 var bp = $('#blood-pressure');
 var notes = $('#notes');
 var submitForm = $('.form-submit');
+var tStatus = $('#transfer');
 var patientInfo = JSON.parse(localStorage.getItem('patientinfo')) || [];
 var symptomsInfo = JSON.parse(localStorage.getItem('symptoms'));
 var patient = '';
 
 submitForm.on('click', function submitInfo(patient) {
   patientInfo = JSON.parse(localStorage.getItem('patientinfo'));
+
+  if (!localStorage.getItem('i')) {
+    localStorage.setItem('i', '0');
+  }
+
+  var id = parseInt(localStorage.getItem('i'));
+  id++;
+  localStorage.setItem('i', id);
 
   if (!patientInfo) {
     patientInfo = [];
@@ -29,6 +38,8 @@ submitForm.on('click', function submitInfo(patient) {
     notes: notes.val(),
     bloodPressure: bp.val(),
     gender: gender.val(),
+    transfer: tStatus.val(),
+    uId: id,
   };
 
   patientInfo.push(patient);
@@ -37,6 +48,7 @@ submitForm.on('click', function submitInfo(patient) {
 
 if (window.location.href.match('existingpatient.html') != null) {
   console.log('works');
+
   loadPatientList();
 }
 
@@ -55,6 +67,8 @@ function addToList(c) {
     'class',
     'uk-card uk-margin-bottom uk-card-default uk-card-body uk-width-1-1@m start'
   );
+  start.attr('data-index', '+data[i].re');
+  start.attr('data-number', c.uId);
 
   var a = $('<h3>' + c.firstName + ' ' + c.lastName + '</h3>');
   $(a).attr('class', 'uk-card-title nameEl test-content');
@@ -71,6 +85,8 @@ function addToList(c) {
       c.responder +
       '</li> <li> NOTES: ' +
       c.notes +
+      '</li> <li> TRANSFER STATUS: ' +
+      c.transfer +
       '</li> </ul>'
   );
   $(b).attr('class', 'p');
@@ -124,17 +140,28 @@ let fillNotes = () => {
 // Bonuses, not necessary
 
 var clearEl = $(this).parent();
-
 var clearButton = $('.start a');
 
 clearButton.on('click', clearEl, function (e) {
   e.preventDefault();
-
-  JSON.parse(localStorage.getItem('patientinfo'));
-
-  $(this).parent().remove();
-
-  for (var i = 0; i < patientInfo.length; i++) {
-    localStorage.removeItem(patientInfo[i]);
-  }
+  console.log('clear data-number', $(this).parent().attr('data-number'));
+  //$(this).parent().remove();
+  removeFromList($(this).parent().attr('data-number'));
 });
+
+function removeFromList(patientID) {
+  // get item from local storage
+  var patientsArr = JSON.parse(localStorage.getItem('patientinfo'));
+
+  //clear container of cards (jquery)
+  patientsArr.forEach((patient, index) => {
+    var idString = patient.uId.toString();
+    if (idString === patientID) {
+      console.log('matched');
+      patientsArr.splice(index, 1);
+      console.log(patientsArr);
+      localStorage.setItem('patientinfo', JSON.stringify(patientsArr));
+      location.reload();
+    }
+  });
+}

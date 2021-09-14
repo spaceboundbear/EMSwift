@@ -13,11 +13,11 @@
   </head>
   <body>
     <nav class="uk-navbar-container uk-margin-bottom" uk-navbar>
-      <a
-        href="index.html"
+      <img
+        src="assets/img/logo.png"
         class="uk-margin-left uk-navbar-item uk-logo uk-navbar-left"
-        >EMSwift</a
-      >
+        style="height: 30px; margin: 1%"
+      />
       <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
           <li class="uk-text-center"><a href="index.html">Home</a></li>
@@ -101,12 +101,23 @@
             placeholder="Responder ID#"
           />
         </div>
+        <div class="uk-width-1-2@s">
+          <label class="uk-form-label" for="form-stacked-text"
+            >Patient Transfer</label
+          >
+          <select id="transfer" class="uk-select">
+            <option>-Select Option-</option>
+            <option>Patient Transferred</option>
+            <option>Patient Referred To Clinic</option>
+            <option>Release Forms Signed; AMA</option>
+          </select>
+        </div>
         <div>
           <label class="uk-form-label" for="form-stacked-text"
             >Add Symptoms</label
           >
           <div class="uk-margin-bottom uk-width-1-1@s">
-            <div class="uk-inline" style="width: 300px">
+            <div class="uk-inline" style="width: 100%">
               <a
                 class="uk-form-icon uk-form-icon-flip add-button"
                 href="#"
