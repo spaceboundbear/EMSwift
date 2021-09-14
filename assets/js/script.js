@@ -76,6 +76,11 @@ function addToList(c) {
   $(b).attr('class', 'p');
   start.append(b);
   $('.add-test').append(start);
+
+  var cb = $(
+    '<a class="uk-button uk-button-danger uk-float-right" id="clear-button"> CLEAR PATIENT </a>'
+  );
+  start.append(cb);
 }
 
 /*------------------- medical api -------------------- */
@@ -103,16 +108,33 @@ $(document).ready(function () {
   console.log(name);
 });
 
-/* --------- WORK ON THIS, FINAL ITEM ---------
+//  --------- WORK ON THIS, FINAL ITEM ---------
 $('.add-button').on('click', function (added) {
   added.preventDefault();
-
-  var textVal = $('.symptoms').val();
-  var textEl = $('<div><p>' + textVal + '</p></div>');
-
-  $('.add-test').append(textEl);
-
+  fillNotes();
   console.log(textVal);
 });
 
-*/
+let fillNotes = () => {
+  var textVal = $('.symptoms').val();
+  let ele = document.getElementById('notes');
+  ele.innerHTML += textVal + ', ';
+};
+
+// Bonuses, not necessary
+
+var clearEl = $(this).parent();
+
+var clearButton = $('.start a');
+
+clearButton.on('click', clearEl, function (e) {
+  e.preventDefault();
+
+  JSON.parse(localStorage.getItem('patientinfo'));
+
+  $(this).parent().remove();
+
+  for (var i = 0; i < patientInfo.length; i++) {
+    localStorage.removeItem(patientInfo[i]);
+  }
+});
