@@ -50,7 +50,7 @@ window.onload = function () {
       map.removeLayer(searchLayer);
     }
     searchLayer = null;
-    map.setView(new L.LatLng(29.4241, -98.4936), 5);
+    map.setView(new L.LatLng(29.4241, -98.4936), 11);
   });
 
   ps.on("error", (e) => {
