@@ -10,5 +10,7 @@ This app also keeps track of patients using local storage
 
 Note: This is simply a proof of concept and does not comply with HIPAA standards and regulations; be aware that this is only for testing and not for actual use in the real world (for now).
 
-Link to app: EMSwift.com
+Link to app: www.EMSwift.com
+
+
 link to repository: https://github.com/spaceboundbear/Project1-UTSA-MF-DB-BT
