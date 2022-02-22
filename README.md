@@ -13,4 +13,4 @@ Note: This is simply a proof of concept and does not comply with HIPAA standards
 Link to app: www.EMSwift.com
 
 
-link to repository: https://github.com/spaceboundbear/Project1-UTSA-MF-DB-BT
+link to repository: https://github.com/spaceboundbear/EMSwift
